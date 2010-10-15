@@ -1,0 +1,54 @@
+= sfArrayCachePlugin plugin =
+
+== Overview ==
+
+Easily cache an array data structure for quick, efficient retrieval, through the symfony cache system.
+This plugin creates optimized php code, similar to the configuration cache system,
+caching the desired array directly to an executeable php file,
+which can be read in with a php include statement.
+
+== Installation ==
+
+To install sfArrayCachePlugin:
+
+{{{
+symfony plugin-install http://plugins.symfony-project.com/sfArrayCachePlugin
+}}}
+
+Clear your cache
+
+{{{
+symfony cc
+}}}
+
+You're done!
+
+== Usage ==
+
+{{{
+#!php
+<?php
+
+$cache = new sfArrayCache(sfConfig::get('sf_cache_dir'));
+$cache->setLifeTime(sfConfig::get('app_my_custom_timeout') * 60); // convert to seconds
+
+$array = $cache->get('unique_array_id', 'my_cache_dir');
+
+// test for empty or timed out cache
+if ($array === null)
+{
+	// rebuild the cache
+	$array = myTools::getComplicatedArrayStructure();
+	
+	// set the cache
+	$cache->set('unique_array_id', 'my_cache_dir', $array);
+}
+
+// do stuff with $array
+// ...
+}}}
+
+== License ==
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.

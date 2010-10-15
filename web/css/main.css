@@ -1,0 +1,22 @@
+div.metafilter {
+	background:		#006699;
+	color:				#FFFFFF;
+}
+
+div.metafilter a {
+	color:				#CCCC00;
+}
+
+ul.comments {
+	font-family:	verdana;
+	font-size:		100%;
+}
+
+ul.comments li {
+	padding: 			15px 15px;
+	word-wrap: 		break-word;
+}
+
+#ft {
+	text-align:		right;
+}

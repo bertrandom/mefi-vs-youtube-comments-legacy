@@ -1,0 +1,5 @@
+.svn
+/web/uploads/*
+/cache/*
+/log/*
+/web/frontend_dev.php
